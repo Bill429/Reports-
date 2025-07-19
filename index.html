@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Enquiry Report Generator</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    textarea, input {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #0066cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    pre {
+      background: #fff;
+      padding: 15px;
+      white-space: pre-wrap;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Final Enquiry Report Generator</h1>
+
+  <label>Enquiry No.:</label>
+  <input type="text" id="enquiryNo">
+
+  <label>Complainant Name & Address:</label>
+  <textarea id="complainant"></textarea>
+
+  <label>Accused Name & Address:</label>
+  <textarea id="accused"></textarea>
+
+  <label>Gist of Allegations:</label>
+  <textarea id="allegations"></textarea>
+
+  <label>Findings of Enquiry:</label>
+  <textarea id="findings"></textarea>
+
+  <button onclick="generateReport()">Generate Report</button>
+
+  <h2>Generated Report:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    function generateReport() {
+      const enquiryNo = document.getElementById('enquiryNo').value;
+      const complainant = document.getElementById('complainant').value;
+      const accused = document.getElementById('accused').value;
+      const allegations = document.getElementById('allegations').value;
+      const findings = document.getElementById('findings').value;
+
+      const report = `FINAL ENQUIRY REPORT
+
+1. Enquiry No.: ${enquiryNo}
+2. Complainant Name and Address: ${complainant}
+3. Accused Name and Address: ${accused}
+4. Gist of Allegations: 
+${allegations}
+
+5. Findings of Enquiry Officer:
+${findings}
+
+In view of the above circumstances, it is evident that oral and documentary evidence supporting the complainant’s allegations are available on record. The accused, by receiving money from the complainant under the pretext of arranging a visa and failing to return it, has committed an offence punishable under Section 17/22 of the Emigration Ordinance, 1979.
+
+The accused has been found genuinely guilty during the course of this enquiry. It is, therefore, recommended that a formal criminal case be registered against the accused.`;
+
+      document.getElementById('output').innerText = report;
+    }
+  </script>
+</body>
+</html>
+Add HTML report generator 
